@@ -9,7 +9,7 @@
       display: flex;
       justify-content: center;
       padding-top: 10rem;
-
+      /* perspective gives a 3D effect when flipping the card */
       perspective: 15rem;
     }
 
@@ -19,9 +19,9 @@
       position: relative;
       box-shadow: 0 3px 9px rgba(0,0,0,0.12), 0 4px 6px rgba(0,0,0,0.24);
       border-radius: 0.5rem;
-
-      -webkit-transition: transform 1.5s;
-      transition: transform .5s;
+      /* transition duration FROM the .transition class -- no answers showing when card changes */
+      -webkit-transition: transform 0s;
+      transition: transform 0s;
       transform-style: preserve-3d;
     }
 
@@ -29,6 +29,9 @@
       -ms-transform: rotateX(-180deg);
       -webkit-transform: rotateX(-180deg);
       transform: rotateX(-180deg);
+      /* transition duration TO the .transition class controls the flip from front to back */
+      -webkit-transition: transform 0.5s;
+      transition: transform 0.5s;
     }
 
     .card-front, .card-back {
@@ -79,7 +82,10 @@
       {front: "Card 3 - Front", back: "Card 3 - Back"}
     ];
 
-    let incrementCard = () => cardIndex = (cardIndex + 1) % cards.length;
+    let incrementCard = () => {
+      showingFront = true;
+      cardIndex = (cardIndex + 1) % cards.length;
+    }
 
     let App = {
       view: () => {
