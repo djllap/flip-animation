@@ -1,0 +1,75 @@
+body {
+  display: flex;
+  justify-content: center;
+  /* perspective gives a 3D effect when flipping the card */
+  perspective: 15rem;
+}
+
+.card {
+  width: 12rem;
+  height: 8rem;
+  position: relative;
+  box-shadow: 0 3px 9px rgba(0,0,0,0.12), 0 4px 6px rgba(0,0,0,0.24);
+  border-radius: 0.5rem;
+  /* Transition duration From the .transition class controll the flip from back to front */
+  -webkit-transition: transform 0.5s;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.flip-transition {
+  -ms-transform: rotateX(-180deg);
+  -webkit-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+  /* transition duration TO the .transition class controls the flip from front to back */
+  -webkit-transition: transform 0.5s;
+  transition: transform 0.5s;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  backface-visibility: hidden;
+  text-align: center;
+  line-height: 8rem;
+}
+
+.card-front {
+  background-color: maroon;
+  color: white;
+}
+
+.card-back {
+  background-color: midnightblue;
+  color: white;
+
+  -ms-transform: rotateX(-180deg);
+  -webkit-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+}
+
+.prev-card {
+  position: relative;
+  right: 100vw;
+  top: 8rem;
+  transition: translateX(25rem) 0.5s;
+}
+
+.next-card {
+  position: relative;
+  left: 100vw;
+  bottom: 8rem;
+}
+
+.btn-group {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
