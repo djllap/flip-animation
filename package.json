@@ -20,7 +20,8 @@
   "homepage": "https://github.com/djllap/flip-animation#readme",
   "dependencies": {
     "flipping": "^1.1.0",
-    "mithril": "^2.0.4"
+    "mithril": "^2.0.4",
+    "web-animations-js": "^2.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
